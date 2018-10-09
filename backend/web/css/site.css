@@ -1,0 +1,207 @@
+html,
+body {
+    height: 100%;
+}
+
+.wrap {
+    min-height: 100%;
+    height: auto;
+    margin: 0 auto -60px;
+    padding: 0 0 60px;
+}
+
+.wrap > .container {
+    padding: 70px 15px 20px;
+}
+
+.footer {
+    height: 60px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+}
+
+.jumbotron {
+    text-align: center;
+    background-color: transparent;
+}
+
+.jumbotron .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+}
+
+.not-set {
+    color: #c55;
+    font-style: italic;
+}
+
+/* add sorting icons to gridview sort links */
+a.asc:after, a.desc:after {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    padding-left: 5px;
+}
+
+a.asc:after {
+    content: /*"\e113"*/ "\e151";
+}
+
+a.desc:after {
+    content: /*"\e114"*/ "\e152";
+}
+
+.sort-numerical a.asc:after {
+    content: "\e153";
+}
+
+.sort-numerical a.desc:after {
+    content: "\e154";
+}
+
+.sort-ordinal a.asc:after {
+    content: "\e155";
+}
+
+.sort-ordinal a.desc:after {
+    content: "\e156";
+}
+
+.grid-view td {
+    white-space: nowrap;
+}
+
+.grid-view .filters input,
+.grid-view .filters select {
+    min-width: 50px;
+}
+
+.hint-block {
+    display: block;
+    margin-top: 5px;
+    color: #999;
+}
+
+.error-summary {
+    color: #a94442;
+    background: #fdf7f7;
+    border-left: 3px solid #eed3d7;
+    padding: 10px 20px;
+    margin: 0 0 15px 0;
+}
+
+/* align the logout "link" (button in form) of the navbar */
+.nav li > form > button.logout {
+    padding: 15px;
+    border: none;
+}
+.table__scroll {
+    overflow-x: auto;
+}
+
+.nav > li > form > button.logout:focus,
+.nav > li > form > button.logout:hover {
+    text-decoration: none;
+}
+
+.nav > li > form > button.logout:focus {
+    outline: none;
+}
+
+/* new admin */
+.select__file-block .file-preview,
+.select__file-block .file-input .btn.btn-file {
+    max-width: 260px;
+}
+.form-group .icheckbox_minimal-purple {
+    margin-right: 5px;
+    margin-top: -1px;
+}
+.filelog {
+    max-height: 550px;
+    overflow-y: auto;
+}
+.post_link {
+    float: right;
+}
+.post_link > a:hover {
+    text-decoration: underline;
+}
+.date_hide {
+    display: none;
+    margin-bottom: 0;
+}
+.formula-block .limit-height {
+    max-height: 163px;
+    overflow-y: auto;
+}
+.formula-block .nav-stacked li.active a:focus {
+    background-color: transparent;
+    color: #444;
+}
+.formula-block .form-group {
+    position: relative;
+}
+.form-group i.persent {
+    position: absolute;
+    top: 32px;
+    left: 110px;
+}
+table.dataTable thead .sorting_desc:after,
+table.dataTable thead .sorting_asc:after {
+    opacity: 0;
+}
+form.form-blocks {
+    font-size: 0;
+}
+form.form-blocks .form-group {
+    display: inline-block;
+    font-size: 14px;
+    width: 50%;
+    position: relative;
+}
+form.form-blocks .form-group:nth-child(1) {
+    padding-right: 10px;
+}
+form.form-blocks .form-group i.type_text {
+    position: absolute;
+    top: -25px;
+    left: 0;
+}
+.inline_l_i > input {
+    display: inline-block;
+    width: 115px;
+    margin-left: 10px;
+}
+.select_inline .select2-container {
+    width: calc(100% - 33px) !important;
+}
+.select__file-block.col-md-5 .krajee-default.file-preview-frame {
+    width: calc(100% - 16px);
+}
+.select__file-block.col-md-5 .krajee-default.file-preview-frame .kv-file-content {
+    width: 100%;
+}
+.table_third_blocks .table-bordered tr td:nth-child(3) img {
+    width: 150px;
+}
+/* new admin */
+
+@media(max-width:767px) {
+    .nav li > form > button.logout {
+        display:block;
+        text-align: left;
+        width: 100%;
+        padding: 10px 15px;
+    }
+}
+@media(max-width:667px) {
+    .date_hide {
+        margin-top: 15px;
+    }
+}
