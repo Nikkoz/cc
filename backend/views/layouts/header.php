@@ -1,14 +1,14 @@
 <?php
-use yii\helpers\Html;
-use Yii;
+use Yii\helpers\Html;
+use yii\helpers\Url;
 
-/* @var $this \yii\web\View */
+/* @var $this \\Yii\web\View */
 /* @var $content string */
 ?>
 
 <header class="main-header">
 
-    <?= Html::a('<span class="logo-mini">' . Yii::$app->params['appNameMin'] . '</span><span class="logo-lg">' . Yii::$app->params['appNameBig'] . '</span>', Yii::$app->homeUrl, ['class' => 'logo']) ?>
+    <?= Html::a('<span class="logo-mini">' . \Yii::$app->params['appNameMin'] . '</span><span class="logo-lg">' . \Yii::$app->params['appNameBig'] . '</span>', \Yii::$app->homeUrl, ['class' => 'logo']) ?>
 
     <nav class="navbar navbar-static-top" role="navigation">
 
@@ -22,7 +22,7 @@ use Yii;
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
-                        <span class="hidden-xs"><?= Yii::$app->user->identity->username;?></span>
+                        <span class="hidden-xs"><?= \Yii::$app->user->identity->name ?: \Yii::$app->user->identity->username;?></span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
@@ -30,13 +30,13 @@ use Yii;
                             <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle" alt="User Image"/>
 
                             <p>
-                                <?= Yii::$app->user->identity->username;?>
+                                <?= \Yii::$app->user->identity->name ?: \Yii::$app->user->identity->username;?>
                             </p>
                         </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="/users/update/" class="btn btn-default btn-flat">Profile</a>
+                                <a href="<?= Url::toRoute(['users/update', 'id' => \Yii::$app->user->id])?>" class="btn btn-default btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
                                 <?= Html::a(
