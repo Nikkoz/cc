@@ -2,6 +2,7 @@
 /yii
 /yii_test
 /yii_test.bat
+/vendor
 
 # phpstorm project files
 .idea
@@ -33,3 +34,15 @@ phpunit.phar
 
 # vagrant runtime
 /.vagrant
+
+# ignore generated files
+/frontend/web/index.php
+/frontend/web/index-test.php
+/frontend/web/robots.txt
+/frontend/assets
+/frontend/web
+/backend/web/index.php
+/backend/web/index-test.php
+/backend/web/robots.txt
+/backend/assets
+/backend/web
