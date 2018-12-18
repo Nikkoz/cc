@@ -13,7 +13,7 @@ use yii\db\Query;
  * Class DuplicateHelper
  * @package core\helpers
  */
-class DuplicateHelper
+final class DuplicateHelper
 {
     protected static $exception = [
         '', ' ', 'RT', 'the', 'The', 'of', 'A', 'a', 'To', 'to',

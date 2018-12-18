@@ -3,7 +3,7 @@
 namespace core\helpers;
 
 
-class GradeHelper
+final class GradeHelper
 {
     public static function returnFilterVote(): array
     {

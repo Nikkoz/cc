@@ -20,7 +20,7 @@ use yii\helpers\ArrayHelper;
  * Class PostsHelper
  * @package core\helpers
  */
-class PostsHelper
+final class PostsHelper
 {
     public static function getCoinList(): array
     {
