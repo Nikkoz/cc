@@ -21,6 +21,13 @@ return [
             'namespace' => 'common\fixtures',
           ],
     ],
+    'migrate' => [
+        'class' => 'fishvision\migrate\controllers\MigrateController',
+        'autoDiscover' => true,
+        'migrationPaths' => [
+            '@vendor/yiisoft/yii2/rbac/migrations',
+        ],
+    ],
     'components' => [
         'log' => [
             'targets' => [
@@ -29,6 +36,16 @@ return [
                     'levels' => ['error', 'warning'],
                 ],
             ],
+        ],
+        'backendUrlManager' => require __DIR__ . '/../../backend/config/urlManager.php',
+        'frontendUrlManager' => require __DIR__ . '/../../frontend/config/urlManager.php',
+        'urlManager' => [
+            'class' => 'yii\web\UrlManager',
+            'baseUrl' => '',
+            'hostInfo' => $params['frontendHostInfo'],
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => []
         ],
     ],
     'params' => $params,
