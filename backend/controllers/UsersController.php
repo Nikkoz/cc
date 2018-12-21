@@ -32,19 +32,6 @@ class UsersController extends Controller
     public function behaviors(): array
     {
         return [
-            'access' => [
-                'class' => AccessControl::class,
-                'rules' => [
-                    [
-                        'actions' => ['index', 'create', 'update', 'delete'],
-                        'allow' => true,
-                        'roles' => ['adminPermission']
-                    ]
-                ],
-                'denyCallback' => function ($rule, $action) {
-                    return $action->controller->redirect(['/site/login']);
-                }
-            ],
             'verbs' => [
                 'class' => VerbFilter::class,
                 'actions' => [

@@ -21,9 +21,14 @@ return [
             'cookieValidationKey' => $params['cookieValidationKey'],
         ],
         'user' => [
-            'identityClass' => 'core\entities\User',
+            'identityClass' => 'common\auth\Identity',
+            'loginUrl' => '/login',
             'enableAutoLogin' => true,
-            'identityCookie' => ['name' => '_identity', 'httpOnly' => true, 'domain' => $params['cookieDomain']],
+            'identityCookie' => [
+                'name' => '_identity',
+                'httpOnly' => true,
+                'domain' => $params['cookieDomain']
+            ],
         ],
         'session' => [
             // this is the name of the session cookie used for login on the backend
@@ -52,9 +57,9 @@ return [
                 ],
             ],
         ],
-        'backendUrlManager' => require  __DIR__ . '/urlManager.php',
+        'backendUrlManager' => require __DIR__ . '/urlManager.php',
         'frontendUrlManager' => require __DIR__ . '/../../frontend/config/urlManager.php',
-        'urlManager' => function() {
+        'urlManager' => function () {
             return \Yii::$app->get('backendUrlManager');
         },
     ],
