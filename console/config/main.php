@@ -37,16 +37,6 @@ return [
                 ],
             ],
         ],
-        'backendUrlManager' => require __DIR__ . '/../../backend/config/urlManager.php',
-        'frontendUrlManager' => require __DIR__ . '/../../frontend/config/urlManager.php',
-        'urlManager' => [
-            'class' => 'yii\web\UrlManager',
-            'baseUrl' => '',
-            'hostInfo' => $params['frontendHostInfo'],
-            'enablePrettyUrl' => true,
-            'showScriptName' => false,
-            'rules' => []
-        ],
     ],
     'params' => $params,
 ];

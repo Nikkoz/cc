@@ -6,5 +6,4 @@ return [
     'cookieDomain' => '.coincontrol.local',
     'frontendHostInfo' => 'http://coincontrol.local',
     'backendHostInfo' => 'http://admin.coincontrol.local',
-
 ];
