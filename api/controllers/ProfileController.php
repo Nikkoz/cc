@@ -3,7 +3,7 @@
 namespace api\controllers;
 
 
-use news\entities\user\User;
+use core\entities\User;
 use yii\rest\Controller;
 
 class ProfileController extends Controller
@@ -34,3 +34,8 @@ class ProfileController extends Controller
         ];
     }
 }
+
+/**
+{"grant_type": "password","username": "admin","password": "1q2w3e4r","client_id": "admin","client_secret": "adminpass"}
+{"grant_type": "password","username": "admin","password": "1q2w3e4r","client_id": "testclient","client_secret": "testpass"}
+ */
