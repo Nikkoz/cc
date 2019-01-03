@@ -87,6 +87,8 @@ return [
                 '' => 'site/index',
                 'profile' => 'profile/index',
                 'POST oauth2/<action:\w+>' => 'oauth2/rest/<action>',
+                'POST auth' => 'user/auth',
+                'POST signin' => 'user/signin',
                 /*[
                     'class' => 'yii\web\CompositeUrlRule',
                     'prefix' => 'v1',
@@ -104,7 +106,7 @@ return [
      */
     'as authenticator' => [
         'class' => 'filsh\yii2\oauth2server\filters\auth\CompositeAuth',
-        'except' => ['site/index', 'oauth2/rest/token'],
+        'except' => ['site/index', 'oauth2/rest/token', 'user/auth', 'user/signin'],
         'authMethods' => [
             ['class' => 'yii\filters\auth\HttpBearerAuth'],
             ['class' => 'yii\filters\auth\QueryParamAuth', 'tokenParam' => 'accessToken'],
@@ -112,7 +114,14 @@ return [
     ],
     'as access' => [
         'class' => 'yii\filters\AccessControl',
-        'except' => ['site/index', 'oauth2/rest/token'],
+        'except' => [
+            'site/index',
+            'oauth2/rest/token',
+            'user/profile',
+            'user/auth',
+            'user/register',
+            'user/signin'
+        ],
         'rules' => [
             [
                 'allow' => true,
