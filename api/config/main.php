@@ -89,6 +89,9 @@ return [
                 'POST oauth2/<action:\w+>' => 'oauth2/rest/<action>',
                 'POST auth' => 'user/auth',
                 'POST signin' => 'user/signin',
+                'GET coin/<code:\w+>' => 'coin',
+                'GET posts/coin/<id:\d+>' => 'posts/list',
+                'GET posts/post/<id:\d+>' => 'posts/detail',
                 /*[
                     'class' => 'yii\web\CompositeUrlRule',
                     'prefix' => 'v1',
@@ -120,7 +123,9 @@ return [
             'user/profile',
             'user/auth',
             'user/register',
-            'user/signin'
+            'user/signin',
+            'posts/list',
+            'posts/post'
         ],
         'rules' => [
             [

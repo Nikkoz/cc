@@ -3,6 +3,8 @@
 namespace core\entities\coins;
 
 
+use core\entities\algorithms\Consensus;
+use core\entities\algorithms\Encryption;
 use core\entities\coins\handbook\Handbook;
 use core\entities\coins\socials\Socials;
 use core\entities\queries\CoinsQuery;
@@ -52,6 +54,8 @@ use core\entities\behaviors\JsonBehavior;
  * @property Meta $meta
  *
  * @property Pictures $picture
+ * @property Encryption $encryption
+ * @property Consensus $consensus
  * @property array assignmentsForum
  * @property array assignmentsHandbook
  * @property array assignmentsSocials
@@ -201,6 +205,16 @@ class Coins extends ActiveRecord
     public function getTypes(): array
     {
         return ['Coin', 'Token'];
+    }
+
+    public function getEncryption()
+    {
+        return $this->hasOne(Encryption::class, ['id' => 'encryption_id']);
+    }
+
+    public function getConsensus()
+    {
+        return $this->hasOne(Consensus::class, ['id' => 'consensus_id']);
     }
 
     public function getUser(): ActiveQuery

@@ -29,7 +29,8 @@ class ProfileController extends Controller
     {
         return [
             'id' => $user->id,
-            'name' => $user->username,
+            'username' => $user->username,
+            'name' => $user->name,
             'email' => $user->email,
         ];
     }

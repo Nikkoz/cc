@@ -192,4 +192,51 @@ class PostsHelper
         $post_id = explode('_', $post_id);
         return str_replace('//', '/', "https://www.facebook.com/{$page_name}/posts/{$post_id[1]}");
     }
+
+    public static function serializeForApi(array $posts): array
+    {
+        $result = [];
+
+        foreach ($posts as $post) {
+            /** @var $post Posts */
+
+            //$result[$post->id] = ['type' => $post->type];
+            $article = [];
+
+            switch($post->type) {
+                case 'post':
+                    $article = [
+                        'title' => $post->title,
+                        'text' => $post->text,
+                        'link' => $post->link,
+                        'created' => $post->created,
+                        'section' => $post->section,
+                        'site' => [
+                            'id' => $post->site->id,
+                            'name' => $post->site->name,
+                            'link' => $post->site->link,
+                        ],
+                    ];
+                    break;
+                case 'facebook':
+                case 'twitter':
+                    $article = [
+                        'post_id' => $post->post_id,
+                        'text' => $post->text,
+                        'user' => [
+                            'id' => $post->user_id,
+                            'name' => $post->user_name,
+                        ],
+                        'shares_count' => $post->shares_count,
+                        'likes_count' => $post->likes_count,
+                        'comments_count' => $post->comments_count,
+                    ];
+                    break;
+            }
+
+            $result[$post->id] = \array_merge(['type' => $post->type], $article);
+        }
+
+        return $result;
+    }
 }
