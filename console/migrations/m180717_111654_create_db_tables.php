@@ -48,6 +48,13 @@ class m180717_111654_create_db_tables extends Migration
             'exchanges_max_count' => $this->integer(),
         ], $tableOptions);
 
+        $this->createTable('{{%pictures}}', [
+            'id' => $this->primaryKey(),
+            'name' => $this->string(255)->notNull(),
+            'description' => $this->string(255)->null(),
+            'sort' => $this->integer()->defaultValue(100),
+        ], $tableOptions);
+
         $this->createTable('{{%landing_blocks}}', [
             'id' => $this->primaryKey(),
             'name' => $this->string(100),
@@ -465,16 +472,6 @@ class m180717_111654_create_db_tables extends Migration
             'type' => $this->string(20),
             'import' => $this->boolean()->defaultValue(0),
         ], $tableOptions);
-
-        $this->createTable('{{%pictures}}', [
-            'id' => $this->primaryKey(),
-            'name' => $this->string(255)->notNull(),
-            'description' => $this->string(255)->null(),
-            'sort' => $this->integer()->defaultValue(100),
-        ], $tableOptions);
-
-        $this->createIndex('IDX_coins_image', '{{%coins}}', 'image');
-        $this->addForeignKey('IDX_coins_image', '{{%coins}}', 'image', '{{%pictures}}', 'id', 'SET NULL', 'RESTRICT');
     }
 
     public function down()

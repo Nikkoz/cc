@@ -23,4 +23,19 @@ class AuthService
 
         return $user;
     }
+
+    public function getAccesses(User $user): array
+    {
+        return $this->users->getOAuth($user->id);
+    }
+
+    public function setAccesses(User $user): array
+    {
+        $this->users->setOAuth($user->id, "{$user->username}client", "{$user->username}pass");
+
+        return [
+            'login' => "{$user->username}client",
+            'password' => "{$user->username}pass",
+        ];
+    }
 }

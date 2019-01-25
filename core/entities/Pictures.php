@@ -42,7 +42,7 @@ class Pictures extends ActiveRecord
     {
         if($this->name) {
             $path = "upload/pictures/{$folder}/" . $this->name;
-            $url = str_replace('admin.', '', Url::home(true));
+            $url = str_replace(['admin.', 'api.'], '', Url::home(true));
             return $url . $path;
         }
         return false;

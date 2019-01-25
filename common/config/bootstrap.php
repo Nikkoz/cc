@@ -4,4 +4,5 @@ Yii::setAlias('@frontend', dirname(dirname(__DIR__)) . '/frontend');
 Yii::setAlias('@backend', dirname(dirname(__DIR__)) . '/backend');
 Yii::setAlias('@console', dirname(dirname(__DIR__)) . '/console');
 Yii::setAlias('@core', dirname(dirname(__DIR__)) . '/core');
+Yii::setAlias('@api', dirname(dirname(__DIR__)) . '/api');
 Yii::setAlias('@images', dirname(dirname(__DIR__)) . '/frontend/web/upload/pictures');
